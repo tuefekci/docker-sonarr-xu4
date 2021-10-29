@@ -1,0 +1,5 @@
+#!/usr/bin/with-contenv bash
+
+cd /app/sonarr/bin || exit
+
+exec s6-setuidgid abc taskset -c 4-7 mono --debug Sonarr.exe -nobrowser -data=/config
